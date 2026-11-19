@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Nights Cover Press — GTA-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Leonida Nights <span>Cover Press</span></h1>
+    <p class="tagline">Your photo + a caption → a Vice City sunset cover. Offline, no upload, PNG out.</p>
+  </div>
+  <p class="steps"><strong>1</strong> Load photos &nbsp;→&nbsp; <strong>2</strong> Pick layout &amp; grade &nbsp;→&nbsp; <strong>3</strong> Export PNG</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h2>Caption</h2>
+    <label>Title <input id="caption" type="text" maxlength="28" value="LEONIDA NIGHTS"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="one more sunset on the coast"></label>
+    <label>Badge <input id="badge" type="text" maxlength="24" value="LEONIDA • 2026"></label>
+
+    <h2>Layout</h2>
+    <div id="layoutRow" class="chips" role="group" aria-label="Panel layout"></div>
+
+    <h2>Colour grade</h2>
+    <div id="gradeRow" class="chips" role="group" aria-label="Colour grade"></div>
+
+    <h2>Export size</h2>
+    <div id="sizeRow" class="chips" role="group" aria-label="Export size"></div>
+
+    <h2>Photos</h2>
+    <div id="pickers"></div>
+    <div class="row">
+      <button id="fillAll" type="button">One photo, all panels</button>
+      <button id="shuffle" type="button">Rotate photos</button>
+    </div>
+    <p class="hint">Photos stay on your machine. Four sample scenes are loaded so you can try it right away.</p>
+
+    <h2>Crop the selected panel</h2>
+    <div id="panelList" class="chips" role="group" aria-label="Select panel"></div>
+    <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1"> <span id="zoomVal">100%</span></label>
+    <label>Pan left–right <input id="panX" type="range" min="-40" max="40" step="1" value="0"></label>
+    <label>Pan up–down <input id="panY" type="range" min="-40" max="40" step="1" value="0"></label>
+    <p class="hint">Pan: <span id="panVal">0, 0</span> — or drag the photo right on the preview.</p>
+    <div class="row">
+      <button id="exportBtn" type="button" class="primary">Export PNG</button>
+      <button id="resetBtn" type="button">Reset crop</button>
+    </div>
+    <p id="status" role="status">Loading samples…</p>
+  </section>
+  <section class="stage" aria-label="Live cover preview">
+    <canvas id="preview" width="1080" height="1080" aria-label="Live cover preview"></canvas>
+    <p class="hint">Live preview — what you see is the PNG you export. Drag a photo to reposition it.</p>
+  </section>
+</main>
+<footer>
+  <p>Leonida Nights Cover Press — an original cover maker. No Rockstar Games logo, artwork or font; lettering uses system fonts only. Built for make.fun's GTA 6 cover art bounty.</p>
+</footer>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
